@@ -3,7 +3,7 @@ import React from "react";
 
 export default function RateLimitUi() {
   return (
-    <div className="bg-primary/30 max-w-200 mx-auto mt-7 p-5 border border-primary/70 rounded-md flex items-center  ">
+    <div className="bg-primary/30 max-w-200 mx-auto mt-7 p-5 border border-primary/70 rounded-md flex items-center">
       <div className="bg-primary/50 w-13 h-13 flex items-center justify-center rounded-full mr-5">
         <ActivityIcon className="text-primary size-10" />
       </div>
