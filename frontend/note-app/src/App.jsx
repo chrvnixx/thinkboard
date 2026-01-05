@@ -5,6 +5,7 @@ import CreatePage from "./pages/CreatePage";
 import NoteDetailPage from "./pages/NoteDetailPage";
 import "./App.css";
 import { useState } from "react";
+import PageNotFound from "./pages/PageNotFound";
 
 export default function App() {
   const [isRateLimit, setIsrateLimit] = useState(false);
@@ -31,6 +32,8 @@ export default function App() {
           }
         />
         <Route path="/note/:id" element={<NoteDetailPage />} />
+
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
