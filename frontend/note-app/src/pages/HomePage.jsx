@@ -17,9 +17,14 @@ export default function HomePage({ isRateLimit, setIsrateLimit }) {
     async function fetchNotes() {
       try {
         setIsLoading(true);
-        const res = await axios.get(`${api}/notes`);
+        const res = await api.get("/notes");
 
-        setNotes(res.data);
+        if (Array.isArray(res.data)) {
+          setNotes(res.data);
+        } else {
+          console.error("Notes response is not an array:", res.data);
+          setNotes([]);
+        }
         setIsrateLimit(false);
       } catch (error) {
         if (error.response.status == 429) {
