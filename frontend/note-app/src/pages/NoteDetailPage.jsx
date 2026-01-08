@@ -2,8 +2,8 @@ import axios from "axios";
 import { ArrowLeftIcon, LoaderIcon, Trash2Icon } from "lucide-react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-
 import { Link, useNavigate, useParams } from "react-router";
+import api from "../lib/axios";
 
 export default function NoteDetailPage() {
   const [note, setNote] = useState(null);
@@ -17,7 +17,7 @@ export default function NoteDetailPage() {
     async function fetchNote() {
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:3000/api/notes/${id}`);
+        const res = await axios.get(`${api}/notes/${id}`);
         setNote(res.data);
         console.log(res.data);
       } catch (error) {
@@ -37,7 +37,7 @@ export default function NoteDetailPage() {
     }
     setSaving(true);
     try {
-      await axios.put(`http://localhost:3000/api/notes/${id}`, note);
+      await axios.put(`${api}/notes/${id}`, note);
       toast.success("Note updated successfully");
       navigate("/");
     } catch (error) {
@@ -51,7 +51,7 @@ export default function NoteDetailPage() {
   const handleDelete = async () => {
     setLoading(true);
     try {
-      await axios.delete(`http://localhost:3000/api/notes/${id}`);
+      await axios.delete(`${api}/notes/${id}`);
       toast.success("Note deleted successfully");
       navigate("/");
     } catch (error) {

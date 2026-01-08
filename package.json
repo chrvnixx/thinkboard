@@ -1,0 +1,22 @@
+{
+  "name": "note-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend/note-app && npm run build --prefix frontend/note-app ",
+    "start": "npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrvnixx/thinkboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/chrvnixx/thinkboard/issues"
+  },
+  "homepage": "https://github.com/chrvnixx/thinkboard#readme"
+}

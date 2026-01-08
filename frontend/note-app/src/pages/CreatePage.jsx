@@ -5,6 +5,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router";
 import RateLimitUi from "../components/RateLimitUi";
+import api from "../lib/axios";
 
 export default function CreatePage({ isRateLimit, setIsrateLimit }) {
   const [title, setTitle] = useState("");
@@ -20,7 +21,7 @@ export default function CreatePage({ isRateLimit, setIsrateLimit }) {
     }
     setIsLoading(true);
     try {
-      await axios.post("http://localhost:3000/api/notes", {
+      await axios.post(`${api}/notes`, {
         title,
         content,
       });
